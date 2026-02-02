@@ -8,7 +8,6 @@ function getBotChoice(){         // func to generate random choices of rock, pap
         case 2 : return "scissors";
     }
 }
-console.log(getBotChoice());
 
 
 function getPlayerChoice(){      // func to get user choice of rock,paper,scissors and return a valid choice either rock, paper or scissors
@@ -23,4 +22,79 @@ function getPlayerChoice(){      // func to get user choice of rock,paper,scisso
         default: return "enter valid value"
     }
 }
-console.log(getPlayerChoice());
+
+
+let playerScore =0;
+let botScore = 0;
+
+function playRound( playerChoice , botChoice ){
+    // console.log(playerChoice, botChoice);
+
+    switch (playerChoice){
+        case "rock":
+            
+            switch (botChoice){
+                case "paper":
+                    console.log("you lose");
+                    botScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "scissors":
+                    console.log("you win")
+                    playerScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "rock":
+                    console.log("tie")
+                    console.log(playerScore, botScore)
+                    break;
+            }
+            break;
+        
+        case "paper":
+
+            switch (botChoice){
+                case "scissors":
+                    console.log("you lose");
+                    botScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "rock":
+                    console.log("you win")
+                    playerScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "paper":
+                    console.log("tie")
+                    console.log(playerScore, botScore)
+                    break;
+            }
+            break;   
+
+        case "scissors":
+
+            switch (botChoice){
+                case "rock":
+                    console.log("you lose");
+                    botScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "paper":
+                    console.log("you win")
+                    playerScore += 1;
+                    console.log(playerScore, botScore)
+                    break;
+                case "scissors":
+                    console.log("tie")
+                    console.log(playerScore, botScore)
+                    break;
+            }
+            break;
+
+        default: console.log("enter a valid value")
+    }
+}
+
+let playerChoice = getPlayerChoice();
+let botChoice = getBotChoice();
+playRound(playerChoice, botChoice);
