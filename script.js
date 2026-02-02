@@ -95,6 +95,20 @@ function playRound( playerChoice , botChoice ){
     }
 }
 
-let playerChoice = getPlayerChoice();
-let botChoice = getBotChoice();
-playRound(playerChoice, botChoice);
+// let playerChoice = getPlayerChoice();
+// let botChoice = getBotChoice();
+// playRound(playerChoice, botChoice);
+
+
+function playGame(){
+
+    console.log("╰( ◕ ᗜ ◕ )╯_____🎌 Game Started 🎌_____(◕‿◕)♡")
+
+    for (let i=0; i<3; i++){
+        let playerChoice = getPlayerChoice();
+        let botChoice = getBotChoice();
+        playRound(playerChoice, botChoice);
+    }
+    
+}
+playGame();
