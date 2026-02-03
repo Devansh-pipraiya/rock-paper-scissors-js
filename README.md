@@ -52,3 +52,9 @@ The game runs in the browser **console** and uses standard **RPS rules** for det
 5. Enter- **Rock**, **Paper**, or **Scissors** (input is case-insensitive so rock, ROck all works ).
    
 7. To view the Score/Result press `Ctrl + Shift + j` to open browser console.
+
+
+> [!caution]
+> **Some browsers blocks** the **input** prompt/pop-up when opening the link in a **new tab**.
+> 
+> If this happens, **refresh the page**, the prompt will **work correctly**.
