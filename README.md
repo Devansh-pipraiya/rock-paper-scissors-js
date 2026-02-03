@@ -58,3 +58,12 @@ The game runs in the browser **console** and uses standard **RPS rules** for det
 > **Some browsers blocks** the **input** prompt/pop-up when opening the link in a **new tab**.
 > 
 > If this happens, **refresh the page**, the prompt will **work correctly**.
+
+
+---
+### 🔨 Future Improvements / To-Do 
+
+- [ ] Add graphical UI with clickable buttons instead of console prompts
+- [ ] Display game results and scores directly on the webpage
+- [ ] Add a replay/reset option for multiple matches
+- [ ] Add sound effects or animations for wins/losses/ties
