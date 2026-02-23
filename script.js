@@ -14,6 +14,8 @@ function getBotChoice(){         // returns random choices of rock, paper or sci
     }
 }
 
+let playerChoice;
+let botChoice;
 let playerScore = 0;
 let botScore = 0;
 let NumberOfRound = 0;
@@ -133,23 +135,14 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
 
 function playGame(){      // Plays the game and calls all other functions
 
-    let botChoice = getBotChoice();
+    botChoice = getBotChoice();
     playRound(playerChoice, botChoice);
     
     NumberOfRound++;
-    if (NumberOfRound == 5){
-    
-        if (playerScore > botScore) {alert("You Won")}
-        else if (playerScore < botScore) {alert("You lose")}
-        else {alert("its a tie")}
-
-        NumberOfRound = 0;
-        playerScore = 0;
-        botScore = 0;
-    }
+    if (NumberOfRound == 5){endGame()}
 }
   
-
+const header = document.querySelector("#header span");
 const h1 = document.querySelector("h1");
 const h2 = document.querySelector("h2");
 const showPlayerScore = document.querySelector("#player-score");
@@ -169,17 +162,61 @@ buttons.addEventListener("click", (e)=>{
         playerChoice = "paper";
         playerSign.textContent="✋";
     }
-    else {
+    else if (e.target.classList.contains("rock") == true) {
         playerChoice ="rock";
         playerSign.textContent="✊";
     }
+    else return;  // to stop registering clicks from between the button-container div and the buttons
 
     playGame();     // calling the function to run the game
     showPlayerScore.textContent= `Player: ${playerScore}`;
-    showBotScore.textContent = `bot: ${botScore}`;
+    showBotScore.textContent = `Bot: ${botScore}`;
 
 })
 
+
+function endGame(){
+    let announce;
+    if (playerScore > botScore) {announce = "YOU WON!"}
+    else if (playerScore < botScore) {announce ="YOU LOSE!"}
+    else {announce = "ITS A TIE!"}
+
+    header.textContent = announce;
+    header.classList.remove("typewriter");
+    void header.offsetWidth; 
+    header.classList.add("typewriter");
+
+    buttons.replaceChildren(playAgainButton);
+
+}
+
+function resetGame(){
+    buttons.innerHTML = originalButtonsHTML;
+
+    playerScore = 0;
+    botScore = 0;
+    NumberOfRound = 0;
+
+    header.classList.remove("typewriter");
+    void header.offsetWidth; 
+    header.classList.add("typewriter");
+    header.textContent = "ROCK PAPER SCISSORS";
+
+    h1.textContent = "Choose Your Weapon";
+    h2.textContent = "⚔️ Best of 5 ⚔️";
+    playerSign.textContent= "❔";
+    botSign.textContent = "❔";
+    showPlayerScore.textContent= `Player: ${playerScore}`;
+    showBotScore.textContent = `Bot: ${botScore}`;
+}
+
+const playAgainButton = document.createElement("button");
+playAgainButton.classList.add("sign");
+playAgainButton.id = "play-again";
+playAgainButton.innerText="Play again";
+playAgainButton.addEventListener("click", resetGame);
+// Save the original buttons HTML when page loads
+const originalButtonsHTML = document.getElementById('buttons').innerHTML;
 
 
 
