@@ -1,3 +1,22 @@
+const header = document.querySelector("#header span");
+const h1 = document.querySelector("h1");
+const h2 = document.querySelector("h2");
+const playerSign = document.querySelector("#player-sign");
+const botSign = document.querySelector("#bot-sign");
+const showPlayerScore = document.querySelector("#player-score");
+const showBotScore = document.querySelector("#bot-score");
+const buttons = document.querySelector("#buttons");
+
+
+let playerChoice;
+let botChoice;
+let playerScore = 0;
+let botScore = 0;
+let NumberOfRound = 0;
+
+
+// ====== CORE FUNCTIONS ====== //
+
 function getBotChoice(){         // returns random choices of rock, paper or scissors(RPS)
 
     let choice = Math.floor(Math.random()*3);  // returns random number either 0, 1 or 2
@@ -14,14 +33,8 @@ function getBotChoice(){         // returns random choices of rock, paper or sci
     }
 }
 
-let playerChoice;
-let botChoice;
-let playerScore = 0;
-let botScore = 0;
-let NumberOfRound = 0;
 
-
-function playRound( playerChoice , botChoice ){    // Main game logic and also update & show score based on RPS rules
+function playRound( playerChoice , botChoice ){    // Main game logic and also show & update score based on RPS rules
 
     switch (playerChoice){                         // This game was originally designed as a console-based version.
         case "rock":                               // The styled console output is intentionally preserved to maintain
@@ -35,8 +48,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Lose!"
                     h2.textContent="Paper beats Rock";
-                    
                     break;
+                    
                 case "scissors":
                     console.log("----------- ✅ You Won - Rock beats Scissors ✅ --------");
                     console.log("_________________________________________________________");
@@ -45,8 +58,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Won!"
                     h2.textContent="Rock beats Scissors";
-                    
                     break;
+                    
                 case "rock":
                     console.log("------------ 🟰 Tie - Rock is Rock 🟰 -----------")
                     console.log("_________________________________________________________");
@@ -54,7 +67,6 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="It's a tie!";
                     h2.textContent="Rock is Rock";
-                    
                     break;
             }
             break;
@@ -70,8 +82,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Lose!"
                     h2.textContent="Scissor beats Paper";
-
                     break;
+
                 case "rock":
                     console.log("------------ ✅ You Won - Paper beats Rock ✅ ---------");
                     console.log("________________________________________________________");
@@ -80,8 +92,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Won!"
                     h2.textContent="Paper beats Rock";
-
                     break;
+
                 case "paper":
                     console.log("------------ 🟰 Tie - Paper is Paper 🟰 -----------");
                     console.log("________________________________________________________");
@@ -89,7 +101,6 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="It's a tie!";
                     h2.textContent="Paper is Paper";
-
                     break;
             }
             break;   
@@ -105,8 +116,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Lose!"
                     h2.textContent="Rock beats Scissor";
-
                     break;
+
                 case "paper":
                     console.log("----------- ✅ You Won - Scissor beats Paper ✅ -------");
                     console.log("________________________________________________________");
@@ -115,8 +126,8 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="You Won!"
                     h2.textContent="Scissor beats Paper";
-
                     break;
+
                 case "scissors":
                     console.log("------------- 🟰 Tie - Scissor is Scissor 🟰 -------");
                     console.log("________________________________________________________");
@@ -124,7 +135,6 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="It's a tie!";
                     h2.textContent="Scissor is Scissor";
-
                     break;
             }
             break;
@@ -133,27 +143,11 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
 }
 
 
-function playGame(){      // Plays the game and calls all other functions
 
-    botChoice = getBotChoice();
-    playRound(playerChoice, botChoice);
-    
-    NumberOfRound++;
-    if (NumberOfRound == 5){endGame()}
-}
-  
-const header = document.querySelector("#header span");
-const h1 = document.querySelector("h1");
-const h2 = document.querySelector("h2");
-const showPlayerScore = document.querySelector("#player-score");
-const showBotScore = document.querySelector("#bot-score");
-const playerSign = document.querySelector("#player-sign");
-const botSign = document.querySelector("#bot-sign");
+//  ======= GAME STARTS BY CLICKING ON BUTTON ======= //
 
-
-const buttons = document.querySelector("#buttons");
 buttons.addEventListener("click", (e)=>{
-
+    
     if (e.target.classList.contains("scissors") == true){
         playerChoice = "scissors";
         playerSign.textContent="✌";
@@ -168,11 +162,23 @@ buttons.addEventListener("click", (e)=>{
     }
     else return;  // to stop registering clicks from between the button-container div and the buttons
 
-    playGame();     // calling the function to run the game
-    showPlayerScore.textContent= `Player: ${playerScore}`;
-    showBotScore.textContent = `Bot: ${botScore}`;
+    
+    playGame();     // main function which runs the game
 
-})
+    showPlayerScore.textContent= `Player: ${playerScore}`;
+    showBotScore.textContent = `Bot: ${botScore}`; 
+});
+
+
+
+function playGame(){      // Plays the game and calls all other functions
+
+    botChoice = getBotChoice();
+    playRound(playerChoice, botChoice);
+    NumberOfRound++;
+    if (NumberOfRound == 5) endGame();
+}
+
 
 
 function endGame(){
@@ -180,15 +186,30 @@ function endGame(){
     if (playerScore > botScore) {announce = "YOU WON!"}
     else if (playerScore < botScore) {announce ="YOU LOSE!"}
     else {announce = "ITS A TIE!"}
-
+    
     header.textContent = announce;
     header.classList.remove("typewriter");
     void header.offsetWidth; 
     header.classList.add("typewriter");
+    
+    buttons.replaceChildren(playAgainButton);         
+    
+};
 
-    buttons.replaceChildren(playAgainButton);
 
-}
+
+// ====== RESET GAME SECTION ====== //
+
+const playAgainButton = document.createElement("button");
+playAgainButton.classList.add("sign");
+playAgainButton.id = "play-again";
+playAgainButton.innerText="Play again";
+playAgainButton.addEventListener("click", resetGame);
+
+// To Save the original buttons when page loads
+const originalButtonsHTML = document.getElementById('buttons').innerHTML;
+
+
 
 function resetGame(){
     buttons.innerHTML = originalButtonsHTML;
@@ -210,17 +231,11 @@ function resetGame(){
     showBotScore.textContent = `Bot: ${botScore}`;
 }
 
-const playAgainButton = document.createElement("button");
-playAgainButton.classList.add("sign");
-playAgainButton.id = "play-again";
-playAgainButton.innerText="Play again";
-playAgainButton.addEventListener("click", resetGame);
-// Save the original buttons HTML when page loads
-const originalButtonsHTML = document.getElementById('buttons').innerHTML;
 
 
 
-// old way to get player choice and return a valid value of either 'rock', 'paper' or 'scissors using prompt()
+
+// Old way to get player choice and return a valid value of either 'rock', 'paper' or 'scissors using prompt()
 // ------------------------------------------------------------------------------------------------------------
 // function getPlayerChoice(){      
 //     let input = prompt('Enter "Rock", "Paper" or "Scissors" \n❗Case doesnt matter❗- 5 Rounds');
