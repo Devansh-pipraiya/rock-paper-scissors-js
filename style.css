@@ -25,12 +25,14 @@ body{
     padding: 50px 0;
 }
 #scoreboard{
-    flex: 1 0 auto;
-    max-height: 40vh;
+    flex: 0 0 auto;
+    /* max-height: 40vh; */
     text-align: center;
+    margin-bottom: 25px;
 }
 img{
-    height:70px
+    height:70px;
+    padding-bottom: 15px;
 }
 
 #buttons{
@@ -40,10 +42,16 @@ img{
     background-color:#393E46 ;
     height: 160px;
     width: 160px;
-    border-radius: 20px;
+    border-radius: 16px;
     color: #eee;
     font-size:80px;
     margin: 15px;
+}
+.sign:hover{
+    background-color: #4a4f57;
+}
+.sign:active{
+    background-color: #5b5f68;
 }
 #footer{
     flex: 0 0 auto;
@@ -54,13 +62,13 @@ img{
     margin-top:auto;
 }
 .score-card{
-    height:150px;
-    width:150px;
+    height:180px;
+    width:160px;
     text-align: center;
-    line-height: 150px;
-    font-size: 25px;
-    outline: 1px solid white;
+    font-size: 24px;
+    /* outline: 1px solid white; */
     border-radius: 12px;
+    font-weight: 500;
 }
 #score-container{
     display:flex;
@@ -74,4 +82,8 @@ h1{
 }
 h2{
     margin-bottom: 40px;
+}
+#player-sign, #bot-sign {
+    font-size: 85px;
+    margin-bottom: 20px;
 }

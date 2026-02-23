@@ -2,9 +2,15 @@ function getBotChoice(){         // returns random choices of rock, paper or sci
 
     let choice = Math.floor(Math.random()*3);  // returns random number either 0, 1 or 2
     switch (choice){
-        case 0 : return "rock";
-        case 1 : return "paper";
-        case 2 : return "scissors";
+        case 0: 
+            botSign.textContent="✊"; 
+            return "rock";
+        case 1: 
+            botSign.textContent="✋"; 
+            return "paper";
+        case 2: 
+            botSign.textContent="✌"; 
+            return "scissors";
     }
 }
 
@@ -110,12 +116,12 @@ function playRound( playerChoice , botChoice ){    // Main game logic and also u
 
                     break;
                 case "scissors":
-                    console.log("------------- 🟰 Tie - Scissor beats Scissor 🟰 -------");
+                    console.log("------------- 🟰 Tie - Scissor is Scissor 🟰 -------");
                     console.log("________________________________________________________");
                     console.log("👤 Your Score:", playerScore, "|||||||| 🤖 Bot Score: " , botScore);
                     console.log("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
                     h1.textContent="It's a tie!";
-                    h2.textContent="Scissor beats Scissor";
+                    h2.textContent="Scissor is Scissor";
 
                     break;
             }
@@ -148,14 +154,25 @@ const h1 = document.querySelector("h1");
 const h2 = document.querySelector("h2");
 const showPlayerScore = document.querySelector("#player-score");
 const showBotScore = document.querySelector("#bot-score");
+const playerSign = document.querySelector("#player-sign");
+const botSign = document.querySelector("#bot-sign");
 
 
 const buttons = document.querySelector("#buttons");
 buttons.addEventListener("click", (e)=>{
 
-    if (e.target.classList.contains("scissors") == true){playerChoice = "scissors"}
-    else if (e.target.classList.contains("paper") == true){playerChoice = "paper"}
-    else playerChoice ="rock";
+    if (e.target.classList.contains("scissors") == true){
+        playerChoice = "scissors";
+        playerSign.textContent="✌";
+    }
+    else if (e.target.classList.contains("paper") == true){
+        playerChoice = "paper";
+        playerSign.textContent="✋";
+    }
+    else {
+        playerChoice ="rock";
+        playerSign.textContent="✊";
+    }
 
     playGame();     // calling the function to run the game
     showPlayerScore.textContent= `Player: ${playerScore}`;
