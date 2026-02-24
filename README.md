@@ -1,69 +1,80 @@
-# 🎮 Rock Paper Scissors (RPS) 👊📃✂️ 
+# 🎮 Interactive Rock Paper Scissors 👋
 
-### A browser-based implementation of the classic Rock Paper Scissors game.
+### Classic game with a clean, modern UI — evolved from a console-only version
 
-This project focuses on building **clear game logic** and **user interaction** using JavaScript,
+This project focuses on building **clear game logic** & **user interaction** built using HTML, CSS & JavaScript, 
 
-The game runs in the browser **console** and uses standard **RPS rules** for determining **outcomes.**
+Play against the bot with **simple button choices** and **instant visual feedback**.
+
 
 ---
-> 📌 **Project status:** Completed ✅ | 🌐 [Live Preview](https://devansh-pipraiya.github.io/rock-paper-scissors-js/)
+
+ 📌 **Project status:** Completed ✅ | 🌐 [Live Preview](https://devansh-pipraiya.github.io/rock-paper-scissors-js/) 
+
 ---
-
-## Preview 👀
-
-### Screenshot
-![Game Screenshot](./Preview.png)
-
-### Gameplay Demo
-![Gameplay Demo](./PreviewGif.gif)
 
 
 ## ✨ Features
 
-- 👤 **Player VS computer** — classic one-on-one RPS  
-- 🎮 **5-round match format** — keeps the game short and focused   
-- 🎲 **Randomize moves of Computer** — no predictable patterns  
-- ⚖️ **Clear win, loss & draw logic** — based on standard RPS rules   
-- 📊 **Score tracking per round** — see who’s actually winning  
-- 🆎 **Case-insensitive input** — (Rock, rock, ROCK all work)   
-- 🖥️ **Console-driven gameplay** — everything happens inside browser console
-
-
-## 📚 What I Learned 
-
-- **JavaScript function** structure and **scope**
-
-- **Conditional** logic using `if / else` and `switch`
+- 👤 **Player vs Bot** — with random bot moves to keep it fair and fun
   
-- **Loop** control with `for` loops
+- 🖱️ **Interactive Buttons** — just click ✊ Rock, ✋ Paper, or ✌ Scissors
   
-- Handling user input and **case-insensitive values**
+- 📊 **Live Updates** — scores, choices, and round results show instantly
   
-- Writing **cleaner** and more **readable** **console** **output**
+- 🎮 **Best of 5** — plays 5 rounds then declares the winner
+  
+- 🖥️ **Console Logs** — original styled outputs from original version (check dev tools)
+  
+- 🔄 **Play Again** — one click to reset and start fresh
+  
 
+## Preview 👀
 
-## 🎮 How to Play 
-
-1. Run the website using [Live Preview Link](https://devansh-pipraiya.github.io/rock-paper-scissors-js/) or Live Server (vscode).
-
-3. You will be prompted **5 times** to enter your choice.
-   
-5. Enter- **Rock**, **Paper**, or **Scissors** (input is case-insensitive so rock, ROck all works ).
-   
-7. To view the Score/Result press `Ctrl + Shift + j` to open browser console.
-
-
-> [!caution]
-> **Some browsers blocks** the **input** prompt/pop-up when opening the link in a **new tab**.
-> 
-> If this happens, **refresh the page**, the prompt will **work correctly**.
-
+![Game Screenshot](./images/rps-ui.png)
 
 ---
-### 🔨 Future Improvements / To-Do 
 
-- [ ] Add graphical UI with clickable buttons instead of console prompts
-- [ ] Display game results and scores directly on the webpage
-- [ ] Add a replay/reset option for multiple matches
-- [ ] Add sound effects or animations for wins/losses/ties
+## 📚 What I Learned
+
+- **JavaScript Basics**: Function scope, structure, conditionals (`if/else`, `switch`), loops, and random generation.
+  
+- **User Input Handling**: Evolved from prompts to **interactive buttons** using **event listeners**.
+  
+- **DOM Manipulation**: Querying elements, updating content, and class toggles for animations.
+  
+- **UI Integration**: Combining logic with HTML/CSS for clean visual feedback while preserving console elements.
+  
+- **Clean Code Practices**: used clear names, short functions, and comments to make everything easy to follow
+  
+
+---
+
+### 🔨 Future Improvements / To-Do
+
+- [x] Add graphical UI with clickable buttons.
+- [x] Display results and scores on the webpage.
+- [x] Add a replay/reset option.
+- [x] Add animations for wins/losses/ties.
+- [ ] Add sound effects
+- [ ] Make rounds customizable (e.g., best of 3/7).
+
+---
+
+
+## ⌛ Project Evolution
+
+This project was originally a pure console-based Rock Paper Scissors game (using prompts and console output).  
+Now its a full interactive browser game
+
+
+> The original console logs remain active for anyone curious — just open DevTools while playing.  
+> To check v1.0 click on `main branch and then **v1.0** under the tag tab` — that's the classic console-only version.
+
+
+## Console Preview 👀
+
+![Game Screenshot](./images/Preview.png)
+
+### Gameplay Demo
+![Gameplay Demo](./images/PreviewGif.gif)
